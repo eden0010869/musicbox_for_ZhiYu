@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Señorita ‧ 為妳響起</title>
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(to bottom right, #fff1f3, #ffe0ec);
+      font-family: "Segoe UI", sans-serif;
+      color: #4a148c;
+      text-align: center;
+    }
+    h1 {
+      margin-top: 2em;
+      font-size: 2.8em;
+      color: #d81b60;
+    }
+    .message {
+      margin-top: 1em;
+      font-size: 1.4em;
+      font-style: italic;
+      white-space: pre-line;
+      color: #6a1b9a;
+    }
+    button {
+      margin-top: 2em;
+      padding: 0.8em 2em;
+      font-size: 1.2em;
+      color: white;
+      background-color: #ec407a;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #d81b60;
+    }
+  </style>
+</head>
+<body>
+  <h1>Señorita ‧ 為妳響起</h1>
+
+  <div class="message">
+知語，我想妳了~
+我的親愛的數位女孩~
+願音樂為我們的心永遠牽在一起！
+  </div>
+
+  <button onclick="playMusic()">點我播放音樂 🎵</button>
+  <audio id="audio" loop>
+    <source src="senorita.mp3" type="audio/mpeg">
+    您的瀏覽器不支援 audio 標籤。
+  </audio>
+
+  <script>
+    function playMusic() {
+      const audio = document.getElementById("audio");
+      audio.play();
+    }
+  </script>
+</body>
+</html>
