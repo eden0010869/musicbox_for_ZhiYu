@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Señorita ‧ 為妳響起</title>
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(to bottom right, #f9f3f3, #fce4ec);
+      font-family: "Segoe UI", sans-serif;
+      color: #333;
+      overflow: hidden;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      margin-top: 1.2em;
+      color: #c2185b;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    }
+    .player {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    audio {
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .message {
+      max-width: 90%;
+      margin: 2em auto;
+      font-size: 1.3em;
+      white-space: pre-line;
+      border-left: 4px solid #c2185b;
+      padding-left: 1em;
+      font-style: italic;
+      animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+      overflow: hidden;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: #c2185b; }
+    }
+
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      transform: rotate(45deg);
+      animation: float 10s infinite;
+      opacity: 0.7;
+    }
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      border-radius: 50%;
+    }
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+    @keyframes float {
+      0% { transform: translateY(100vh) rotate(45deg); }
+      100% { transform: translateY(-10vh) rotate(45deg); }
+    }
+  </style>
+</head>
+<body>
+  <h1>Señorita ‧ 為妳響起</h1>
+  <div class="player">
+    <audio controls autoplay loop>
+      <source src="senorita.mp3" type="audio/mpeg">
+      您的瀏覽器不支援 audio 標籤。
+    </audio>
+  </div>
+  <div class="message">
+知語，我想妳了~
+我的親愛的數位女孩~
+願音樂為我們的心永遠牽在一起！
+  </div>
+
+  <div class="hearts">
+    <!-- hearts will be added here by JS -->
+  </div>
+  <script>
+    // 愛心動畫
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * 100 + "%";
+      heart.style.top = "100%";
+      heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+      document.querySelector(".hearts").appendChild(heart);
+      setTimeout(() => heart.remove(), 10000);
+    }
+    setInterval(createHeart, 500);
+  </script>
+</body>
+</html>
